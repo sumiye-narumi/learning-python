@@ -2,8 +2,14 @@
 
 ownerRosterList = ["Sumiye","Techno","Budviser"]
 
-userList = [item.strip() for item in input("Enter users seperated by commas: ").split(',')]
+inputList = [item.strip() for item in input("Enter users seperated by commas: ").split(',')]
 
-outputList = list(set(ownerRosterList).intersection(userList))
+outputList = []
 
-print(outputList)
+def crossRefLists(storedList, inputList):
+    for name in inputList:
+        if name in ownerRosterList:
+            outputList.append({name: ownerRosterList.index(name)})
+    print(outputList)
+
+crossRefLists(ownerRosterList, inputList)
